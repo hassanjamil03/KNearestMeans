@@ -74,7 +74,7 @@ def kmeans(dataset, k_locations):
             is_c_in_mid.append(False)
 
     if is_c_in_mid.__contains__(False): # means we need to do another iteration of kmeans
-
+        pass
         # return k_locations
     # else if :
         # return kmeans(dataset, k_locations)
