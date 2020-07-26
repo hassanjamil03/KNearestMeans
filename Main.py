@@ -29,7 +29,7 @@ class Centroid():
 
         # midpoint of all points in object
         self.midpoint = midpoint
-
+# yoyoyo testing patch-1
 
 def get_nearest_k(point, k_locations):
     distance = []
