@@ -2,6 +2,7 @@
 
 from scipy.spatial import distance as dist
 from statistics import mean
+import random
 
 """
 def kmeans(list dataset, list k_locations):
@@ -19,7 +20,9 @@ def gen_k(int k):
         generate random location and add to k_loc
     return k_loc
 """
-class Centroid():
+
+
+class Centroid:
     def __init__(self, centroid=(0,0), points=[], midpoint=(0,0)):
         # tuple of the centroid location
         self.centroid = centroid
@@ -45,7 +48,7 @@ def get_mean(item):
     for i in item:
         x.append(i[0])
         y.append(i[1])
-    return (mean(x), mean(y))
+    return mean(x), mean(y)
 
 
 def kmeans(dataset, k_locations):
@@ -69,18 +72,19 @@ def kmeans(dataset, k_locations):
 
         # if midpoint is equal to current centroid location
         if centroid.midpoint == centroid.centroid:
-            is_c_in_mid.append(True)
+            is_c_in_mid.append("True")
         else:
-            is_c_in_mid.append(False)
+            is_c_in_mid.append("False")
 
-    if is_c_in_mid.__contains__(False): # means we need to do another iteration of kmeans
-
-        # return k_locations
-    # else if :
-        # return kmeans(dataset, k_locations)
+    if "False" in is_c_in_mid: # means we need to do another iteration of kmeans
+        k_locations = kmeans(dataset, k_locations)
+        return k_locations
+    else:
+        return k_locations
 
 def gen_k(k):
-    pass
-    # for every num in k:
+    k_loc = []
+    for num in k:
         # generate random location and add to k_loc
-    # return k_loc
+        k_loc.append((random.randint(0, 100), random.randint(0, 100)))
+    return k_loc
